@@ -12,7 +12,7 @@ This sample demonstrates how to add and customize legend in the MAUI Cartesian C
     </chart:SfCartesianChart.Title>
 
     <chart:SfCartesianChart.XAxes>
-        <chart:CategoryAxis/>
+        <chart:CategoryAxis PlotOffsetStart="5" PlotOffsetEnd="5"/>
     </chart:SfCartesianChart.XAxes>
 
     <chart:SfCartesianChart.YAxes>
@@ -49,11 +49,6 @@ This sample demonstrates how to add and customize legend in the MAUI Cartesian C
 
     <chart:StackingLineSeries ItemsSource="{Binding BloodType}" Label="B+"
                               XBindingPath="Country" YBindingPath="BType" 
-                              Fill="Yellow" ShowMarkers="True"
-                              LegendIcon="SeriesType"/>
-
-    <chart:StackingLineSeries ItemsSource="{Binding BloodType}" Label="Others"
-                              XBindingPath="Country" YBindingPath="Others" 
                               Fill="Green" ShowMarkers="True"
                               LegendIcon="SeriesType"/>
 </chart:SfCartesianChart>
