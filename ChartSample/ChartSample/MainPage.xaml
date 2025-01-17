@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:ChartSample"
+             x:Class="ChartSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <chart:SfCartesianChart x:Name="chart">
+
+        <chart:SfCartesianChart.Title>
+            <Label Text="Blood Type Distribution Among Population" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="16" />
+        </chart:SfCartesianChart.Title>
+
+        <chart:SfCartesianChart.XAxes>
+            <chart:CategoryAxis PlotOffsetStart="5" PlotOffsetEnd="5"/>
+        </chart:SfCartesianChart.XAxes>
+
+        <chart:SfCartesianChart.YAxes>
+            <chart:NumericalAxis PlotOffsetEnd="10">
+                <chart:NumericalAxis.LabelStyle>
+                    <chart:ChartAxisLabelStyle LabelFormat="0'%"/>
+                </chart:NumericalAxis.LabelStyle>
+            </chart:NumericalAxis>
+        </chart:SfCartesianChart.YAxes>
+
+        <chart:SfCartesianChart.Legend>
+            <chart:ChartLegend>
+                <chart:ChartLegend.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Rectangle HeightRequest="7" Margin="10" 
+                                   WidthRequest="20" Background="{Binding IconBrush}"/>
+                            <Label Text="{Binding Text}" Margin="3"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </chart:ChartLegend.ItemTemplate>
+            </chart:ChartLegend>
+        </chart:SfCartesianChart.Legend>
+
+        <chart:StackingLineSeries ItemsSource="{Binding BloodType}" Label="O+"
+                              XBindingPath="Country" YBindingPath="OType" 
+                              Fill="DodgerBlue" ShowMarkers="True"
+                              LegendIcon="SeriesType"/>
+
+        <chart:StackingLineSeries ItemsSource="{Binding BloodType}" Label="A+"
+                              XBindingPath="Country" YBindingPath="AType" 
+                              Fill="Orange" ShowMarkers="True"
+                              LegendIcon="SeriesType"/>
+
+        <chart:StackingLineSeries ItemsSource="{Binding BloodType}" Label="B+"
+                              XBindingPath="Country" YBindingPath="BType" 
+                              Fill="Green" ShowMarkers="True"
+                              LegendIcon="SeriesType"/>
+    </chart:SfCartesianChart>
+
+</ContentPage>
