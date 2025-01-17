@@ -16,14 +16,12 @@ namespace CartesianChart
         public double OType { get; set; }
         public double AType { get; set; }
         public double BType { get; set; }
-        public double Others { get; set; }
-        public Model(string country, double otype, double atype, double btype, double others)
+        public Model(string country, double otype, double atype, double btype)
         {
             Country = country;
             OType = otype;
             AType = atype;
             BType = btype;
-            Others = others;
         }
     }
 
@@ -34,12 +32,12 @@ namespace CartesianChart
         {
             BloodType = new ObservableCollection<Model>()
             {
-               new Model("US",37.40,35.70,8.50,18.40),
-               new Model("Switzerland",26,37,13,24),
-               new Model("Austria",30,33,12,25),
-               new Model("Bulgaria",28,37,13,22),
-               new Model("Poland",26.60,31.26,15.73,26.41),
-               new Model("Myanmar",35.70,23.80,32.70,7.80),
+               new Model("US",37.40,35.70,8.50),
+               new Model("Switzerland",26,37,13),
+               new Model("Austria",30,33,12),
+               new Model("Bulgaria",28,37,13),
+               new Model("Poland",26.60,31.26,15.73),
+               new Model("Myanmar",35.70,23.80,32.70),
             };
         }
     }
